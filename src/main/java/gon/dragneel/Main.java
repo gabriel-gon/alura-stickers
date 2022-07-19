@@ -54,7 +54,7 @@ public class Main {
 	        }
 
             float nota = Float.parseFloat(filme.get("imDbRating"));
-            System.out.println("\u001b[1m Nota: \u001b[m"+nota+"");
+            System.out.println(" \u001b[48;2;228;2;2m\u001b[1mNota: \u001b[m\u001b[48;2;228;2;2m"+nota+" \u001b[m");
             
             String estrelas = "";            
             for(int i = 0; i<nota; i++) {
