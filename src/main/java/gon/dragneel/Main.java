@@ -23,8 +23,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
     	
     	//Obtendo as informações da API
-
-		//Properties properties = ConfigProperties.getProp();
+	//Properties properties = ConfigProperties.getProp();
         //String url = "https://imdb-api.com/en/API/Top250Movies/"+properties.getProperty("prop.imdb.apiKey");
     	
         String url = "https://api.mocki.io/v2/549a5d8b";
@@ -42,22 +41,20 @@ public class Main {
         for (Map<String,String> filme : listaFilmes) {
             System.out.println("\u001b[1m Titulo: \u001b[m"+filme.get("title"));
             
+	    // Tranforma imprime a imagem no terminal e caso não tenha imagem exibe a mensagem de imagem não encontrada
             try {
-	            System.out.println("\u001b[1m Imagem: \u001b[m");
-	            URL urlImage = new URL(filme.get("image"));
-	    		BufferedImage sampleImage = ImageIO.read(urlImage );
-	    		AbstractImageRenderer converter = new RgbImageRenderer(25, 25);
-	    		TerminalImage x = converter.render(sampleImage);
-	    		System.out.println(x.getSequence());
+		System.out.println("\u001b[1m Imagem: \u001b[m");
+	    	URL urlImage = new URL(filme.get("image"));
+	    	BufferedImage sampleImage = ImageIO.read(urlImage );
+	    	AbstractImageRenderer converter = new RgbImageRenderer(25, 25);
+	    	TerminalImage x = converter.render(sampleImage);
+	    	System.out.println(x.getSequence());
             }catch (IIOException e) {
             	System.out.println("Imagem não encontrada");
-			}
+	    }
             
             System.out.println("\u001b[1m Nota: \u001b[m"+filme.get("imDbRating")+"");
             System.out.println("");
         }
-        
-        
-        
     }
 }
